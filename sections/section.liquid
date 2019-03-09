@@ -1,0 +1,291 @@
+<style>
+  #section-{{ section.id }} {
+
+  }
+</style>
+
+<!--
+  This is an example of how to display a setting with a section and make
+  it clickable in the theme editor with a kjb-settings-id
+-->
+<div class="section{{ section.settings.spacing }}" kjb-settings-id="{{ 'spacing' | settings_id: section: section }}">
+  <div class="container">
+    <div class="row align-middle">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'text' %}
+            {% include "block_text" %}
+          {% when 'image' %}
+            {% include "block_image" %}
+          {% when 'video' %}
+            {% include "block_video" %}
+          {% when 'form' %}
+            {% include "block_form" %}
+          {% when 'cta' %}
+            {% include "block_cta" %}
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+<!--
+  Section Schema
+  The Schema is what drives the elements, blocks and presets for this particular
+  section. Elements define the setting for the section, while blocks allow you
+  to define sub-sections to add an arrange in this section.
+
+  Presets define what shows up in the theme editor when a user clicks "Add Section"
+-->
+{% schema %}
+{
+  "name": "Section",
+  "elements": [
+    {
+      "type": "radio",
+      "id": "spacing",
+      "label": "Spacing",
+      "default": "",
+      "options": [
+        {"value": "-sm", "label": "Small"},
+        {"value": "", "label": "Medium"},
+        {"value": "-lg", "label": "Large"}
+      ]
+    }
+  ],
+  "blocks": [
+    {
+      "type": "text",
+      "name": "Text",
+      "elements": [
+        {
+          "type": "header",
+          "content": "Text"
+        },
+        {
+          "type": "rich_text",
+          "label": "Text",
+          "id": "text",
+          "default": "<h4>Text Block</h4><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>"
+        },
+        {
+          "type": "header",
+          "content": "Block Appearance",
+          "style": "subheading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "col-6",
+          "options": [
+            { "value": "col-1", "label": "1/12" },
+            { "value": "col-2", "label": "2/12" },
+            { "value": "col-3", "label": "3/12" },
+            { "value": "col-4", "label": "4/12" },
+            { "value": "col-5", "label": "5/12" },
+            { "value": "col-6", "label": "6/12" },
+            { "value": "col-7", "label": "7/12" },
+            { "value": "col-8", "label": "8/12" },
+            { "value": "col-9", "label": "9/12" },
+            { "value": "col-10", "label": "10/12" },
+            { "value": "col-11", "label": "11/12" },
+            { "value": "col-12", "label": "12/12" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "image",
+      "name": "Image",
+      "elements": [
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image",
+          "fit": "max",
+          "width": 2300,
+          "height": 2300,
+          "info": "Suggested dimensions: 1856 × 1044"
+        },
+        {
+          "type": "action",
+          "id": "img_action",
+          "label": "Image Action",
+          "anchor": true,
+          "two_step": true,
+          "default": ""
+        },
+        {
+          "type": "header",
+          "content": "Block Appearance",
+          "style": "subheading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "col-6",
+          "options": [
+            { "value": "col-1", "label": "1/12" },
+            { "value": "col-2", "label": "2/12" },
+            { "value": "col-3", "label": "3/12" },
+            { "value": "col-4", "label": "4/12" },
+            { "value": "col-5", "label": "5/12" },
+            { "value": "col-6", "label": "6/12" },
+            { "value": "col-7", "label": "7/12" },
+            { "value": "col-8", "label": "8/12" },
+            { "value": "col-9", "label": "9/12" },
+            { "value": "col-10", "label": "10/12" },
+            { "value": "col-11", "label": "11/12" },
+            { "value": "col-12", "label": "12/12" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "video",
+      "name": "Video",
+      "elements": [
+        {
+          "type": "header",
+          "content": "Video"
+        },
+        {
+          "type": "video",
+          "id": "video",
+          "label": "Video"
+        },
+        {
+          "type": "header",
+          "content": "Block Appearance",
+          "style": "subheading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "col-6",
+          "options": [
+            { "value": "col-1", "label": "1/12" },
+            { "value": "col-2", "label": "2/12" },
+            { "value": "col-3", "label": "3/12" },
+            { "value": "col-4", "label": "4/12" },
+            { "value": "col-5", "label": "5/12" },
+            { "value": "col-6", "label": "6/12" },
+            { "value": "col-7", "label": "7/12" },
+            { "value": "col-8", "label": "8/12" },
+            { "value": "col-9", "label": "9/12" },
+            { "value": "col-10", "label": "10/12" },
+            { "value": "col-11", "label": "11/12" },
+            { "value": "col-12", "label": "12/12" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "form",
+      "name": "Form",
+      "elements": [
+        {
+          "type": "header",
+          "content": "Form"
+        },
+        {
+          "type": "form",
+          "id": "form",
+          "label": "Form",
+          "default": "default",
+          "allow_blank": true
+        },
+        {
+          "type": "header",
+          "content": "Block Appearance",
+          "style": "subheading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "col-6",
+          "options": [
+            { "value": "col-1", "label": "1/12" },
+            { "value": "col-2", "label": "2/12" },
+            { "value": "col-3", "label": "3/12" },
+            { "value": "col-4", "label": "4/12" },
+            { "value": "col-5", "label": "5/12" },
+            { "value": "col-6", "label": "6/12" },
+            { "value": "col-7", "label": "7/12" },
+            { "value": "col-8", "label": "8/12" },
+            { "value": "col-9", "label": "9/12" },
+            { "value": "col-10", "label": "10/12" },
+            { "value": "col-11", "label": "11/12" },
+            { "value": "col-12", "label": "12/12" }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "cta",
+      "name": "Call To Action",
+      "elements": [
+        {
+          "type": "header",
+          "content": "Call To Action"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Text",
+          "default": "Call To Action"
+        },
+        {
+          "type": "action",
+          "id": "action",
+          "label": "Action",
+          "default": "https://theme-developers.kajabi.com/"
+        },
+        {
+          "type": "header",
+          "content": "Block Appearance",
+          "style": "subheading"
+        },
+        {
+          "type": "select",
+          "id": "width",
+          "label": "Width",
+          "default": "col-6",
+          "options": [
+            { "value": "col-1", "label": "1/12" },
+            { "value": "col-2", "label": "2/12" },
+            { "value": "col-3", "label": "3/12" },
+            { "value": "col-4", "label": "4/12" },
+            { "value": "col-5", "label": "5/12" },
+            { "value": "col-6", "label": "6/12" },
+            { "value": "col-7", "label": "7/12" },
+            { "value": "col-8", "label": "8/12" },
+            { "value": "col-9", "label": "9/12" },
+            { "value": "col-10", "label": "10/12" },
+            { "value": "col-11", "label": "11/12" },
+            { "value": "col-12", "label": "12/12" }
+          ]
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Section",
+      "category": "Content",
+      "blocks": [],
+      "settings": {
+      }
+    }
+  ]
+
+}
+{% endschema %}

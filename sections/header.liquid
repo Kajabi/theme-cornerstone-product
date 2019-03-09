@@ -1,0 +1,77 @@
+<!--
+  This is an example of how to display a setting with a section and make
+  it clickable in the theme editor with a kjb-settings-id
+-->
+{% if section.settings.show_header %}
+  <div class="header">
+    <div class="container">
+      <div class="media align-middle">
+        <a href="/">
+          <img src="{{ section.settings.logo | image_picker_url: 'logo.png' }}" kjb-settings-id="{{ 'logo' | settings_id: section: section }}"/>
+        </a>
+        <div class="media-body text-right">
+          {% if section.settings.show_menu %}
+            <span kjb-settings-id="{{ 'menu' | settings_id: section: section }}">
+              {% for link in current_site.link_lists[section.settings.menu].links %}
+                <a href="{{ link.url }}">{{ link.name }}</a>
+              {% endfor %}
+            </span>
+          {% endif %}
+          {% if section.settings.show_user_menu %}
+            {% include "user_menu" %}
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!--
+  Section Schema
+  The Schema is what drives the elements, blocks and presets for this particular
+  section. Elements define the setting for the section, while blocks allow you
+  to define sub-sections to add an arrange in this section.
+
+  Presets define what shows up in the theme editor when a user clicks "Add Section"
+-->
+{% schema %}
+{
+  "name": "Header",
+  "elements": [
+    {
+      "type": "checkbox",
+      "id": "show_header",
+      "label": "Show Header",
+      "default": "true"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_menu",
+      "label": "Show Menu",
+      "default": "true"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_user_menu",
+      "label": "Show User Menu",
+      "default": "true"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image",
+      "fit": "max",
+      "width": 1000,
+      "height": 1000,
+      "info": "Suggested dimensions: 360x80"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "The topmost menu for the site.",
+      "default": "main-menu"
+    }
+  ]
+}
+{% endschema %}

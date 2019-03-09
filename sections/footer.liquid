@@ -1,0 +1,89 @@
+<!--
+  This is an example of how to display a setting with a section and make
+  it clickable in the theme editor with a kjb-settings-id
+-->
+{% if section.settings.show_footer %}
+  <div class="footer">
+    <div class="container">
+      <div class="media align-middle">
+        {% if section.settings.show_logo %}
+          <img src="{{ section.settings.logo | image_picker_url: 'logo.png'}}" kjb-settings-id="{{ 'logo' | settings_id: section: section }}"/>
+        {% endif %}
+        <div class="media-body text-right">
+          {% if section.settings.show_menu %}
+            <span kjb-settings-id="{{ 'menu' | settings_id: section: section }}">
+              {% for link in current_site.link_lists[section.settings.menu].links %}
+                <a href="{{ link.url }}">{{ link.name }}</a>
+              {% endfor %}
+            </span>
+          {% endif %}
+          {% if section.settings.show_copyright %}
+            <span kjb-settings-id="{{ 'copyright' | settings_id: section: section }}">&copy; {{ 'now' | date: "%Y" }} {{ section.settings.copyright }}</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endif %}
+
+<!--
+  Section Schema
+  The Schema is what drives the elements, blocks and presets for this particular
+  section. Elements define the setting for the section, while blocks allow you
+  to define sub-sections to add an arrange in this section.
+
+  Presets define what shows up in the theme editor when a user clicks "Add Section"
+-->
+{% schema %}
+{
+  "name": "Footer",
+  "elements": [
+    {
+      "type": "checkbox",
+      "id": "show_footer",
+      "label": "Show Footer",
+      "default": "true"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_logo",
+      "label": "Show Logo",
+      "default": "true"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_menu",
+      "label": "Show Menu",
+      "default": "true"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_copyright",
+      "label": "Show Copyright",
+      "default": "true"
+    },
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo Image",
+      "fit": "max",
+      "width": 1000,
+      "height": 1000,
+      "info": "Suggested dimensions: 360x80"
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright",
+      "default": "Kajabi"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "info": "The menu at the bottom footer.",
+      "default": "footer"
+    }
+  ]
+}
+{% endschema %}

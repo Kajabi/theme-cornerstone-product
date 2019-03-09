@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Title and description ================================================== -->
+    {% csrf_meta_tags %}
+    <title>
+      {% if page_title %}
+        {{ page_title }}
+      {% else %}
+        {{ current_site.title }}
+      {% endif %}
+    </title>
+    <meta charset="utf-8" />
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    {% if page_description %}
+      <meta name="description" content="{{ page_description | escape }}" />
+    {% endif %}
+
+    <!-- Helpers ================================================== -->
+    {% include "social_meta_tags" %}
+    <link href="{{ settings.favicon | image_picker_url: 'favicon.png' }}?v=2" rel="shortcut icon" />
+    <link rel="canonical" href="{{ canonical_url }}" />
+
+    <!-- Google Fonts ================================================== -->
+    {% if settings.font_family %}
+      <link href="//fonts.googleapis.com/css?family={{ settings.font_family | replace: ' ', '+' }}:400,700,400italic,700italic" rel="stylesheet" type="text/css">
+    {% endif %}
+
+    <!-- Cornerstone CSS ================================================== -->
+    <link rel="stylesheet" href="https://www.kajabicornerstone.com/stylesheets/cornerstone-beta-1.1.1.css">
+
+    <!-- CSS Settings Variables ================================================== -->
+    {% include "css-variables" %}
+
+    <!-- Kajabi CSS ================================================== -->
+    {{ 'core.css' | kajabi_asset_url | stylesheet_tag }}
+    {{ 'theme.css' | asset_url | stylesheet_tag }}
+    {{ 'overrides.css' | asset_url | stylesheet_tag }}
+
+    <!-- Header hook ====================================================== -->
+    {% content_for_header %}
+
+  </head>
+  <body>
+
+    {% section "header" %}
+    {% content_for_index %}
+    {% section "footer" %}
+    {% include "powered_by" %}
+
+    <!-- Javascripts ================================================== -->
+    {{ 'core.js' | kajabi_asset_url | script_tag }}
+    <script charset='ISO-8859-1' src='https://fast.wistia.com/assets/external/E-v1.js'></script>
+    <script charset='ISO-8859-1' src='https://fast.wistia.com/labs/crop-fill/plugin.js'></script>
+    {{ 'scripts.js' | asset_url | script_tag }}
+  </body>
+</html>
