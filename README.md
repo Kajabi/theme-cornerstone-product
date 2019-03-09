@@ -1,6 +1,6 @@
-#  Landing Page
+#  Product
 
-Cornerstone Landing Page Theme represents the Kajabi UX Team's opinionated starting point for new theme projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of themes we build. It is a reflection of what’s possible when building a theme!
+Cornerstone Product Theme represents the Kajabi UX Team's opinionated starting point for new theme projects. It strives to include up-to-date best practices and solutions that we have deemed needed for the majority of themes we build. It is a reflection of what’s possible when building a theme!
 
 ## Intentional lack of styles
 
