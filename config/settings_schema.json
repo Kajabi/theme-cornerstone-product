@@ -88,6 +88,36 @@
         "id": "language_library",
         "label": "Library Text",
         "default": "My Library"
+      },
+      {
+        "type": "text",
+        "id": "complete",
+        "label": "Complete Text",
+        "default": "Complete Lesson"
+      },
+      {
+        "type": "text",
+        "id": "completed",
+        "label": "Completed Text",
+        "default": "Lesson Completed!"
+      },
+      {
+        "type": "text",
+        "id": "favorite",
+        "label": "Favorite Text",
+        "default": "Favorite"
+      },
+      {
+        "type": "text",
+        "id": "favorited",
+        "label": "Favorited Text",
+        "default": "Favorited"
+      },
+      {
+        "type": "text",
+        "id": "downloads",
+        "label": "Downloads Text",
+        "default": "Downloads"
       }
     ]
   }

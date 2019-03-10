@@ -1,0 +1,14 @@
+{% if post.assessment %}
+  <div class="section">
+    <div class="container-sm">
+      {{ post.assessment | assessment: color: settings.color_primary }}
+    </div>
+  </div>
+{% endif %}
+{% if post.video %}
+  <div class="section">
+    <div class="container-sm">
+      {{ post.video | wistia_video: player_color: settings.color_primary, still_url: post.poster_image_url, playerPreference: "html5" }}
+    </div>
+  </div>
+{% endif %}

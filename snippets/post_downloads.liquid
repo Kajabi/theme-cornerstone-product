@@ -1,0 +1,10 @@
+{% if post.downloads.count > 0 %}
+  <div class="section">
+    <div class="container-sm">
+      <h2 kjb-settings-id="{{ downloads }}">{{ settings.downloads }} ({{ post.downloads.count }})</h2>
+      {% for download in post.downloads %}
+        <a href="{{ download.url }}">{{ download.display_name }}</a><br />
+      {% endfor %}
+    </div>
+  </div>
+{% endif %}
