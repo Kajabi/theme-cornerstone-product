@@ -1,0 +1,11 @@
+.page {
+  height: 100%;
+  margin: 0 0;
+  &-sidebar {
+    border-right: 1px solid #eee;
+    padding: 1rem;
+  }
+  &-stage {
+    padding: 0 0;
+  }
+}
