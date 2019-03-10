@@ -1,0 +1,32 @@
+{% unless post.comments_mode_hidden? %}
+  <div class="section">
+    <div class="container-sm">
+      {% if post.comments_mode_locked? %}
+        <h4 kjb-settings-id="language_comment_locked">{{ settings.language_comment_locked }}</h4>
+      {% elsif current_site_user.muted? != true %}
+        {% form "comment", post %}
+          <div class="media">
+            <img width="40" height="40" src="{{ current_site_user | avatar_url: 40  }}"/>
+            <div class="media-body">
+              <textarea kjb-settings-id="language_comment_placeholder" rows="5" placeholder="{{ settings.language_comment_placeholder }}" name="comment[body]" id="comment_body"></textarea>
+              <input kjb-settings-id="language_comment_add" class="btn" type="submit" name="commit" data-disable-with="{{ settings.language_comment_submitting }}" value="{{ settings.language_comment_add }}">
+            </div>
+          </div>
+        {% endform %}
+      {% endif %}
+      {% if post.comments.size > 0 %}
+        {% assign per_page = 5 %}
+        {% paginate post.comments_toplevel by per_page %}
+          <div data-comments-list>
+            {% for comment in paginate.collection %}
+              {% include "comment" %}
+            {% endfor %}
+          </div>
+          {% if paginate.pages > 1 %}
+            <a kjb-settings-id="language_comment_show_more" class="btn" href="{{post.comment_show_more_url}}?per={{ per_page }}&desc_from={{ paginate.collection.last.id | minus: 1 }}" id="show-more-comments-btn" data-remote="true" data-disable-with="{{ settings.language_comment_show_more_loading }}">{{ settings.language_comment_show_more }}</a>
+          {% endif %}
+        {% endpaginate %}
+      {% endif %}
+    </div>
+  </div>
+{% endunless %}

@@ -1,0 +1,24 @@
+<div data-comment="{{ comment.id }}">
+  <div class="media">
+    <img width="40" height="40" src="{{ comment.author | avatar_url: 40 }}"/>
+    <div class="media-body">
+      <div>{{ comment.author.name }}</div>
+      <div>{{ comment.created_at | local_time_ago }}</div>
+      <div class="comment-body" data-comment-body>{{ comment.body | simple_format }}</div>
+      {% unless current_site_user.muted? %}
+        {% if post.comments_mode_visible? %}
+          <a kjb-settings-id="language_comment_reply" class="btn" data-remote="true" href="{{ post.comment_new_url }}?parent_comment={{ comment.id }}">{{ settings.language_comment_reply }}</a>
+        {% endif %}
+        {% if comment.author.id == current_site_user.id and comment.author.type == current_site_user.type %}
+          <a kjb-settings-id="language_comment_edit" class="btn" data-remote="true" href="{{ comment.edit_url }}">{{ settings.language_comment_edit }}</a>
+        {% endif %}
+      {% endunless %}
+      <div data-comment-replies="{{ comment.id }}">
+        {% for comment in comment.comments %}
+          {% include "comment" %}
+        {% endfor %}
+      </div>
+      <div data-comment-reply="{{ comment.id }}"></div>
+    </div>
+  </div>
+</div>

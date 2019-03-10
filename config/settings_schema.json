@@ -118,6 +118,54 @@
         "id": "downloads",
         "label": "Downloads Text",
         "default": "Downloads"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_locked",
+        "label": "Comments Locked",
+        "default": "Comments Locked"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_placeholder",
+        "label": "Comments Placeholder",
+        "default": "Say Something..."
+      },
+      {
+        "type": "text",
+        "id": "language_comment_submitting",
+        "label": "Comment Submitting",
+        "default": "submitting"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_add",
+        "label": "Comment Submit",
+        "default": "Post Comment"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_reply",
+        "label": "Comment Reply",
+        "default": "REPLY"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_edit",
+        "label": "Comment Edit",
+        "default": "EDIT"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_show_more",
+        "label": "Show More Comments",
+        "default": "Show More"
+      },
+      {
+        "type": "text",
+        "id": "language_comment_show_more_loading",
+        "label": "Show More Comments Loading",
+        "default": "Loading More Comments..."
       }
     ]
   }
