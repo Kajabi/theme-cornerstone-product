@@ -1,0 +1,14 @@
+{% paginate current_product.announcements by 3 %}
+  <div class="section">
+    <div class="container">
+      {% for announcement in paginate.collection %}
+        <div>{{ announcement.updated_at | date: "%m/%d/%Y" }}</div>
+        <div>{{ announcement.title }}</div>
+        {{ announcement.body }}
+      {% endfor %}
+      {% if paginate.pages > 1 %}
+        {% include "pagination" %}
+      {% endif %}
+    </div>
+  </div>
+{% endpaginate %}

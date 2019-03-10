@@ -1,0 +1,9 @@
+{% assign first_post = category.posts.first %}
+
+{% include "post_media",      post: first_post %}
+{% include "post_audio",      post: first_post %}
+{% include "post_actions",    post: first_post %}
+{% include "post_body",       post: first_post %}
+{% include "post_downloads",  post: first_post %}
+{% include "post_comments",   post: first_post %}
+{% include "post_pagination", post: first_post %}
