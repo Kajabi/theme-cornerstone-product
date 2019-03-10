@@ -43,11 +43,17 @@
 
   </head>
   <body>
+    <div class="row page">
+      <div class="col-3 page-sidebar">
 
-    {% section "header" %}
-    {{ content_for_layout }}
-    {% section "footer" %}
-    {% include "powered_by" %}
+      </div>
+      <div class="col page-stage">
+        {% section "header" %}
+        {{ content_for_layout }}
+        {% section "footer" %}
+        {% include "powered_by" %}
+      </div>
+    </div>
 
     <!-- Javascripts ================================================== -->
     {{ 'core.js' | kajabi_asset_url | script_tag }}
