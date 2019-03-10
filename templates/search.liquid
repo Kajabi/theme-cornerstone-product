@@ -1,0 +1,14 @@
+<div class="section">
+  <div class="container">
+    <h1 kjb-settings-id="{{ results_text }}">{{ settings.results_text }}: &quot;{{ search.terms }}&quot;</h1>
+    {% paginate search.results by 5 %}
+      {% for post in paginate.collection %}
+        <a href="{{ post.url }}">{{ post.title }}</a>
+        <p>{{ post.body | strip_html | truncate: 400 }}</p>
+      {% endfor %}
+      {% if paginate.pages > 1 %}
+        {% include "pagination", simple: true %}
+      {% endif %}
+    {% endpaginate %}
+  </div>
+</div>

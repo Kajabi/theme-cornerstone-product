@@ -1,0 +1,23 @@
+<form action="{{ current_product.search_url }}" method="get" role="search" kjb-settings-id="{{ 'show_search' | settings_id: section: section }}">
+  <input type="search" name="q" placeholder="{{ section.settings.placeholder }}" kjb-settings-id="{{ 'placeholder' | settings_id: section: section }}">
+</form>
+
+{% schema %}
+  {
+    "name": "Navigation",
+    "elements": [
+      {
+        "type": "checkbox",
+        "id": "show_search",
+        "label": "Show Search",
+        "default": "true"
+      },
+      {
+        "type": "text",
+        "id": "placeholder",
+        "label": "Placeholder",
+        "default": "Search"
+      }
+    ]
+  }
+{% endschema %}

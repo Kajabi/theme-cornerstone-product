@@ -166,6 +166,12 @@
         "id": "language_comment_show_more_loading",
         "label": "Show More Comments Loading",
         "default": "Loading More Comments..."
+      },
+      {
+        "type": "text",
+        "default": "Search Results for",
+        "label": "Results Text",
+        "id": "results_text"
       }
     ]
   }
