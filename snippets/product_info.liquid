@@ -1,7 +1,0 @@
-{% if current_product.thumbnail_url %}
-  <img src="{{ current_product.thumbnail_url }}"/>
-{% else %}
-  <img src="{{ 'placeholder.png' | asset_url }}"/>
-{% endif %}
-<h4>{{ current_product.title }}</h4>
-<p>{{ current_product.description }}</p>

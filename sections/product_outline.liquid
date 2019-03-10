@@ -1,0 +1,44 @@
+{% for category in current_product.outline.categories %}
+  {% if category.pending_drip? %}
+    <h4>{ category.title }} - Drip</h4>
+  {% elsif category.locked? %}
+    <h4>{ category.title }} - Locked</h4>
+  {% else %}
+    <h4><a href="{{ category.url }}">{{ category.title }}</a></h4>
+    {% if section.settings.show_posts %}
+      {% for post in category.posts %}
+        <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+      {% endfor %}
+    {% endif %}
+    {% if category.children? %}
+      {% for category in category.subcategories %}
+        {% if category.pending_drip? %}
+          <h4>{ category.title }} - Drip</h4>
+        {% elsif category.locked? %}
+          <h4>{ category.title }} - Locked</h4>
+        {% else %}
+          <h4><a href="{{ category.url }}">{{ category.title }}</a></h4>
+          {% if section.settings.show_posts %}
+            {% for post in category.posts %}
+              <p><a href="{{ post.url }}">{{ post.title }}</a></p>
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
+  {% endif %}
+{% endfor %}
+
+{% schema %}
+  {
+    "name": "Navigation",
+    "elements": [
+      {
+        "type": "checkbox",
+        "id": "show_posts",
+        "label": "Show Posts",
+        "default": "true"
+      }
+    ]
+  }
+{% endschema %}

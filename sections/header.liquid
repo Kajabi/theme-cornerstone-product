@@ -6,17 +6,8 @@
   <div class="header">
     <div class="container">
       <div class="media align-middle">
-        <a href="/">
-          <img src="{{ section.settings.logo | image_picker_url: 'logo.png' }}" kjb-settings-id="{{ 'logo' | settings_id: section: section }}"/>
-        </a>
+        <strong>{{ current_product.title }}</strong>
         <div class="media-body text-right">
-          {% if section.settings.show_menu %}
-            <span kjb-settings-id="{{ 'menu' | settings_id: section: section }}">
-              {% for link in current_site.link_lists[section.settings.menu].links %}
-                <a href="{{ link.url }}">{{ link.name }}</a>
-              {% endfor %}
-            </span>
-          {% endif %}
           {% if section.settings.show_user_menu %}
             {% include "user_menu" %}
           {% endif %}
@@ -46,31 +37,9 @@
     },
     {
       "type": "checkbox",
-      "id": "show_menu",
-      "label": "Show Menu",
-      "default": "true"
-    },
-    {
-      "type": "checkbox",
       "id": "show_user_menu",
       "label": "Show User Menu",
       "default": "true"
-    },
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo Image",
-      "fit": "max",
-      "width": 1000,
-      "height": 1000,
-      "info": "Suggested dimensions: 360x80"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Menu",
-      "info": "The topmost menu for the site.",
-      "default": "main-menu"
     }
   ]
 }
