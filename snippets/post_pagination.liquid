@@ -1,14 +1,10 @@
-<div class="section-sm">
-  <div class="container-sm">
-    {% if post.previous %}
-      <a href="{{ post.previous.url }}" class="btn">
-        <
-      </a>
-    {% endif %}
-    {% if post.next %}
-      <a href="{{ post.next.url }}" class="btn">
-        >
-      </a>
-    {% endif %}
-  </div>
-</div>
+{% if post.previous %}
+  <a href="{{ post.previous.url }}" class="btn">
+    <
+  </a>
+{% endif %}
+{% if post.next %}
+  <a href="{{ post.next.url }}" class="btn">
+    >
+  </a>
+{% endif %}
