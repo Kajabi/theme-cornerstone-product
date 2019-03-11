@@ -47,8 +47,8 @@ a {
 .progress {
   background: #eee; }
   .progress-done {
-    height: 3px;
-    background: #000; }
+    height: 4px;
+    background: var(--color-primary); }
 
 .section, .section-sm, .section-lg {
   border-bottom: 1px solid #eee; }
