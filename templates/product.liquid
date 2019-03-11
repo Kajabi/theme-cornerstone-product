@@ -1,1 +1,2 @@
-{% include "post", post: current_product.categories.first.posts.first %}
+{% assign post = current_product.categories.first.posts.first %}
+{% include "post", post: post %}

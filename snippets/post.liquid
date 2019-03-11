@@ -1,10 +1,19 @@
+{% include "progress" %}
+<div class="section-sm">
+  <div class="container-sm">
+    {% include "post_actions",    post: post %}
+  </div>
+</div>
 <div class="section post">
   <div class="container-sm">
     {% include "post_media",      post: post %}
-    {% include "post_actions",    post: post %}
     {% include "post_body",       post: post %}
     {% include "post_downloads",  post: post %}
     {% include "post_comments",   post: post %}
+  </div>
+</div>
+<div class="section-sm">
+  <div class="container-sm">
     {% include "post_pagination", post: post %}
   </div>
 </div>

@@ -44,5 +44,11 @@ a {
   .powered-by a {
     color: #222; }
 
+.progress {
+  background: #eee; }
+  .progress-done {
+    height: 3px;
+    background: #000; }
+
 .section, .section-sm, .section-lg {
   border-bottom: 1px solid #eee; }

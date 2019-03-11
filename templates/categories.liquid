@@ -1,1 +1,2 @@
-{% include "post", post: categories.first.posts.first %}
+{% assign post = categories.first.posts.first %}
+{% include "post", post: post %}

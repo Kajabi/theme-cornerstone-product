@@ -1,0 +1,7 @@
+.progress {
+  background: #eee;
+  &-done {
+    height: 3px;
+    background: #000;
+  }
+}
