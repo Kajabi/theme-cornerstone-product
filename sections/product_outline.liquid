@@ -1,8 +1,8 @@
 {% for category in current_product.outline.categories %}
   {% if category.pending_drip? %}
-    <h4>{ category.title }} - Drip</h4>
+    <h4>{{ category.title }} - Drip</h4>
   {% elsif category.locked? %}
-    <h4>{ category.title }} - Locked</h4>
+    <h4>{{ category.title }} - Locked</h4>
   {% else %}
     <h4><a href="{{ category.url }}">{{ category.title }}</a></h4>
     {% if section.settings.show_posts %}
@@ -13,9 +13,9 @@
     {% if category.children? %}
       {% for category in category.subcategories %}
         {% if category.pending_drip? %}
-          <h4>{ category.title }} - Drip</h4>
+          <h4>{{ category.title }} - Drip</h4>
         {% elsif category.locked? %}
-          <h4>{ category.title }} - Locked</h4>
+          <h4>{{ category.title }} - Locked</h4>
         {% else %}
           <h4><a href="{{ category.url }}">{{ category.title }}</a></h4>
           {% if section.settings.show_posts %}
