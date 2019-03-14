@@ -6,11 +6,7 @@
   {% endif %}
 </a>
 <a href="#" data-favorite-toggle="true" data-favorited="{{ post.favorited? }}" data-favorite-token="{{ post.favorite_token }}" class="btn" kjb-settings-id="{{ favorite }}">
-  {% if post.favorited? %}
     {{ settings.favorite }}
-  {% else %}
-    {{ settings.favorited }}
-  {% endif %}
 </a>
 <a href="{{ post.video.url }}" class="btn">
   Download Video
