@@ -1,6 +1,8 @@
+{% if section.settings.show_search  %}
 <form action="{{ current_product.search_url }}" method="get" role="search" kjb-settings-id="{{ 'show_search' | settings_id: section: section }}">
   <input type="search" name="q" placeholder="{{ section.settings.placeholder }}" kjb-settings-id="{{ 'placeholder' | settings_id: section: section }}">
 </form>
+{% endif %}
 
 {% schema %}
   {
