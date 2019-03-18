@@ -20,7 +20,7 @@ $(function() {
       audio.play();
     });
   }
-});
+}); 
 
 // A cross-browser javascript shim for html5 audio
 (function(audiojs, audiojsInstance, container) {
