@@ -67,12 +67,6 @@
       },
       {
         "type": "text",
-        "id": "language_login",
-        "label": "Login Text",
-        "default": "Login"
-      },
-      {
-        "type": "text",
         "id": "language_logout",
         "label": "Logout Text",
         "default": "Logout"
