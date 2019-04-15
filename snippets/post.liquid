@@ -5,7 +5,9 @@
 </div>
 <div class="section post">
   <div class="container-sm">
-    {% include "post_media",      post: post %}
+    {% include "post_video",      post: post %}
+    {% include "post_assessment", post: post %}
+    {% include "post_audio",      post: post %}
     {% include "post_body",       post: post %}
     {% include "post_downloads",  post: post %}
     {% include "post_comments",   post: post %}

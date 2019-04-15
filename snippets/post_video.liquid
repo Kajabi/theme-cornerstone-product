@@ -1,0 +1,6 @@
+{% if post.video %}
+  {{ post.video | wistia_video: player_color: settings.color_primary, still_url: post.poster_image_url, playerPreference: "html5" }}
+  <a href="{{ post.video.url }}" class="btn">
+    Download Video
+  </a>
+{% endif %}

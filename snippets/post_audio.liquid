@@ -1,9 +1,3 @@
-{% if post.assessment %}
-  {{ post.assessment | assessment: color: settings.color_primary }}
-{% endif %}
-{% if post.video %}
-  {{ post.video | wistia_video: player_color: settings.color_primary, still_url: post.poster_image_url, playerPreference: "html5" }}
-{% endif %}
 {% for download in post.downloads %}
   {% if download.extension == '.mp3' %}
     <div style="display:none;">{% increment audio_count %}</div>
