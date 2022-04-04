@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: theme-cornerstore-product
+  tags:
+    - theme
+    - themes
+    - cornerstone
+    - product
+    - node
+    - js
+    - javascript
+  annotations:
+    backstage.io/source-location: url:https://github.com/Kajabi/theme-cornerstone-product
+    github.com/project-slug: Kajabi/theme-cornerstone-product
+spec:
+  system: themes
+  type: theme
+  owner: themes
+  lifecycle: production
+  dependsOn:
+    - component:gulpjs
