@@ -2,10 +2,14 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   name: theme-cornerstore-product
+  description: |
+    Cornerstone Product is a product theme. It's offered as boilerplate starting point for 3rd party theme developers [here](https://themes.kajabi.com/liquid/getting-started/theme-types). There is no "release" for the Cornerstone Product Theme, as it isn't installable directly in Kajabi Admin.
   tags:
     - theme
     - themes
     - cornerstone
+    - cornerstone-theme
+    - theme-product
     - product
     - node
     - js
@@ -16,7 +20,8 @@ metadata:
 spec:
   system: themes
   type: theme
-  owner: themes
+  owner: build
   lifecycle: production
   dependsOn:
+    - component:kajabi-products-app
     - component:gulpjs
