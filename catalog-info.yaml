@@ -14,6 +14,7 @@ metadata:
     - node
     - js
     - javascript
+    - liquid
   annotations:
     backstage.io/source-location: url:https://github.com/Kajabi/theme-cornerstone-product
     github.com/project-slug: Kajabi/theme-cornerstone-product
